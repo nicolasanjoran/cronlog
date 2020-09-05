@@ -1,0 +1,22 @@
+#!/bin/sh
+OUTPUT_PATH="logs"
+OUTPUT_CSV="$OUTPUT_PATH/cronlog.csv"
+mkdir -p $OUTPUT_PATH
+touch $OUTPUT_CSV
+
+startTime=`date +%s`
+
+scriptname=$1
+shift
+echo "\n----------------------------------------------------" >> logs/$scriptname.log
+echo "| Starting at $startTime" >> logs/$scriptname.log
+echo "----------------------------------------------------" >> logs/$scriptname.log
+$* >> logs/$scriptname.log
+result=$?
+
+sed -i.bak "/^$scriptname,/d" $OUTPUT_CSV
+rm $OUTPUT_CSV.bak
+
+endTime=`date +%s`
+
+echo "$scriptname,$startTime,$endTime,$result" >> $OUTPUT_CSV
