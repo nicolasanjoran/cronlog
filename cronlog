@@ -8,10 +8,10 @@ startTime=`date +%s`
 
 scriptname=$1
 shift
-echo "\n----------------------------------------------------" >> logs/$scriptname.log
-echo "| Starting at $startTime" >> logs/$scriptname.log
-echo "----------------------------------------------------" >> logs/$scriptname.log
-$* >> logs/$scriptname.log
+echo "\n----------------------------------------------------" >> $OUTPUT_PATH/logs/$scriptname.log
+echo "| Starting at $startTime" >> $OUTPUT_PATH/logs/$scriptname.log
+echo "----------------------------------------------------" >> $OUTPUT_PATH/logs/$scriptname.log
+$* >> $OUTPUT_PATH/logs/$scriptname.log
 result=$?
 
 sed -i.bak "/^$scriptname,/d" $OUTPUT_CSV
