@@ -1,5 +1,5 @@
 #!/bin/sh
-OUTPUT_PATH="logs"
+OUTPUT_PATH="~/.cronlog/logs"
 OUTPUT_CSV="$OUTPUT_PATH/cronlog.csv"
 mkdir -p $OUTPUT_PATH
 touch $OUTPUT_CSV
