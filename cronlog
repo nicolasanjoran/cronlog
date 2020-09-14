@@ -7,8 +7,9 @@ touch $OUTPUT_CSV
 startTime=`date +%s`
 
 scriptname=$1
+
 shift
-echo "\n----------------------------------------------------" >> $OUTPUT_PATH/$scriptname.log
+echo "\n----------------------------------------------------" > $OUTPUT_PATH/$scriptname.log
 echo "| Starting at $startTime" >> $OUTPUT_PATH/$scriptname.log
 echo "----------------------------------------------------" >> $OUTPUT_PATH/$scriptname.log
 $* >> $OUTPUT_PATH/$scriptname.log
